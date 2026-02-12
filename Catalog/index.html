@@ -6,6 +6,16 @@
   <title>Snack FH</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
+  <!-- BOTTOM NAV (MOBILE ONLY) -->
+<nav class="bottom-nav">
+  <button onclick="scrollToTop()">🏠<span>Home</span></button>
+  <button onclick="document.getElementById('produk').scrollIntoView({behavior:'smooth'})">🛍<span>Produk</span></button>
+  <button class="cart-btn" onclick="toggleCart()">🛒<span>Cart</span><i id="bnCount">0</i></button>
+  <button onclick="toggleDark()">🌙<span>Mode</span></button>
+</nav>
+
+<!-- FLOATING CART (MOBILE) -->
+<button class="floating-cart" onclick="toggleCart()">🛒<b id="fcCount">0</b></button>
 <body>
 
 <!-- NAVBAR (TIDAK DIUBAH) -->
@@ -535,5 +545,6 @@
 
 </body>
 </html>
+
 
 
