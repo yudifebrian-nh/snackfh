@@ -1,7 +1,9 @@
 let cart = [];
 let selectedProduct = null;
 
-/* CART */
+/* =====================
+   CART
+===================== */
 function addToCart(btn){
   const card = btn.closest(".card");
   const name = card.dataset.name;
@@ -47,6 +49,8 @@ function updateCart(){
 
   cartCount.innerText = qty;
   totalPrice.innerText = total.toLocaleString();
+
+  syncBadges(qty);
 }
 
 function increaseQty(i){
@@ -72,7 +76,9 @@ function toggleCart(){
   document.getElementById("cartPanel").classList.toggle("active");
 }
 
-/* CHECKOUT */
+/* =====================
+   CHECKOUT (WHATSAPP)
+===================== */
 function checkout(){
   if(cart.length === 0){
     alert("Keranjang masih kosong!");
@@ -82,27 +88,43 @@ function checkout(){
   let msg = "Halo admin, saya ingin pesan:%0A";
   let total = 0;
 
-  cart.forEach(i=>{
-    total += i.price * i.qty;
-    msg += `- ${i.name} (${i.qty}x)%0A`;
+  cart.forEach(item=>{
+    total += item.price * item.qty;
+    msg += `- ${item.name} (${item.qty}x) = Rp ${(
+      item.price * item.qty
+    ).toLocaleString()}%0A`;
   });
 
   msg += `Total: Rp ${total.toLocaleString()}`;
-  window.open(`https://wa.me/6285732844902?text=${msg}`);
+
+  if(confirm(
+    `Anda yakin ingin checkout?\n\n${
+      cart.map(i => i.name + " x" + i.qty).join("\n")
+    }\n\nTotal: Rp ${total.toLocaleString()}`
+  )){
+    window.open(`https://wa.me/6285732844902?text=${msg}`);
+  }
 }
 
-/* DARK MODE */
-document.getElementById("darkToggle").addEventListener("click",()=>{
+/* =====================
+   DARK MODE
+===================== */
+document.getElementById("darkToggle")?.addEventListener("click",()=>{
   document.body.classList.toggle("dark");
 });
 
-/* POPUP */
+/* =====================
+   PRODUCT MODAL
+===================== */
 function openModal(card){
   selectedProduct = card;
-  document.getElementById("modalImg").src = card.querySelector("img").src;
-  document.getElementById("modalTitle").innerText = card.dataset.name;
+  document.getElementById("modalImg").src =
+    card.querySelector("img").src;
+  document.getElementById("modalTitle").innerText =
+    card.dataset.name;
   document.getElementById("modalPrice").innerText =
     "Rp " + Number(card.dataset.price).toLocaleString();
+
   document.getElementById("productModal").classList.add("active");
 }
 
@@ -124,3 +146,24 @@ window.addEventListener("click",e=>{
     closeModal();
   }
 });
+
+/* =====================
+   UTILITIES
+===================== */
+function scrollToTop(){
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function toggleDark(){
+  document.body.classList.toggle('dark');
+}
+
+/* =====================
+   BADGE SYNC (BOTTOM NAV / FLOATING CART)
+===================== */
+function syncBadges(totalQty){
+  const bn = document.getElementById('bnCount');
+  const fc = document.getElementById('fcCount');
+  if(bn) bn.innerText = totalQty;
+  if(fc) fc.innerText = totalQty;
+}
