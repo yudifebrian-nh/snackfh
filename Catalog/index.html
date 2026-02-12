@@ -8,24 +8,31 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- NAVBAR (TIDAK DIUBAH) -->
 <header>
   <nav class="navbar">
     <div class="logo">SNACK<span>FH</span></div>
-   <ul class="nav-links">
-  <li><a href="#home">Home</a></li>
-  <li><a href="#produk">Produk</a></li>
-  <li>
-    <a href="https://wa.me/6285732844902" target="_blank" class="contact-btn">
-      Contact
-    </a>
-  </li>
-  <li><button id="darkToggle">🌙</button></li>
-</ul>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#produk">Produk</a></li>
+      <li>
+        <a href="https://wa.me/6285732844902" target="_blank" class="contact-btn">
+          Contact
+        </a>
+      </li>
 
+      <li>
+  <div class="cart-icon" onclick="toggleCart()">
+    🛒 <span id="cartCount">0</span>
+  </div>
+</li>
+
+      <li><button id="darkToggle">🌙</button></li>
+    </ul>
   </nav>
 </header>
-<!-- HOME -->
+
+<!-- HERO -->
 <section id="home" class="hero">
   <h1>SELAMAT BERBELANJA</h1>
   <p>Kualitas terbaik dengan harga terjangkau</p>
@@ -34,247 +41,451 @@
 <!-- PRODUK -->
 <section id="produk" class="catalog">
 
-  <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.39 (1).jpeg">
-    <h3>Stik Pedas 1kg</h3>
-    <div class="price">Rp 35.000</div>
-  </div>
+<!-- 1 -->
+<div class="card" data-name="Stik Pedas 1kg" data-price="35000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.39 (1).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.39 (1).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Stik Pedas 1kg</h3>
+<div class="price">Rp 35.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
-  <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.37 (1).jpeg">
-    <h3>Pisang Aroma 1kg</h3>
-    <div class="price">Rp 48.000</div>
-  </div>
+<!-- 2 -->
+<div class="card" data-name="Pisang Aroma 1kg" data-price="48000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.37 (1).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.37 (1).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Pisang Aroma 1kg</h3>
+<div class="price">Rp 48.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
-  <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.37.jpeg">
-    <h3>Twist Jagung Panggang 1kg</h3>
-    <div class="price">Rp 51.000</div>
-  </div>
+<!-- 3 -->
+<div class="card" data-name="Twist Jagung Panggang 1kg" data-price="51000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.37.jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.37.jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Twist Jagung Panggang 1kg</h3>
+<div class="price">Rp 51.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
-   <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.38 (2).jpeg">
-    <h3>Cendol Keju 1kg</h3>
-    <div class="price">Rp 37.000</div>
-  </div>
+<!-- 4 -->
+<div class="card" data-name="Cendol Keju 1kg" data-price="37000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.38 (2).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.38 (2).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Cendol Keju 1kg</h3>
+<div class="price">Rp 37.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
-   <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.38.jpeg">
-    <h3>Keripik Usus 1kg</h3>
-    <div class="price">Rp 55.000</div>
-  </div>
-  
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.39 (2).jpeg">
-    <h3>Singkong Bakar 1kg</h3>
-    <div class="price">Rp 52.000</div>
-  </div>
+<!-- 5 -->
+<div class="card" data-name="Keripik Usus 1kg" data-price="55000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.38.jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.38.jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Keripik Usus 1kg</h3>
+<div class="price">Rp 55.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.40 (1).jpeg">
-    <h3>Koin Pedas 1kg</h3>
-    <div class="price">Rp 47.000</div>
-  </div>
+<!-- 6 -->
+<div class="card" data-name="Singkong Bakar 1kg" data-price="52000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.39 (2).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.39 (2).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Singkong Bakar 1kg</h3>
+<div class="price">Rp 52.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.49.jpeg">
-    <h3>Zeko Bunga Warna 1kg</h3>
-    <div class="price">Rp 40.000</div>
-  </div>
+<!-- 7 -->
+<div class="card" data-name="Koin Pedas 1kg" data-price="47000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.40 (1).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.40 (1).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Koin Pedas 1kg</h3>
+<div class="price">Rp 47.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.48.jpeg">
-    <h3>Sagu Mini 1kg</h3>
-    <div class="price">Rp 40.000</div>
-  </div>
+<!-- 8 -->
+<div class="card" data-name="Zeko Bunga Warna 1kg" data-price="40000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.49.jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.49.jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Zeko Bunga Warna 1kg</h3>
+<div class="price">Rp 40.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.48 (2).jpeg">
-    <h3>Jelly Puding 1kg</h3>
-    <div class="price">Rp 25.000</div>
-  </div>
+<!-- 9 -->
+<div class="card" data-name="Sagu Mini 1kg" data-price="40000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.48.jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.48.jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Sagu Mini 1kg</h3>
+<div class="price">Rp 40.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.48 (1).jpeg">
-    <h3>Pillow Coklat 1kg</h3>
-    <div class="price">Rp 36.000</div>
-  </div>
+<!-- 10 -->
+<div class="card" data-name="Jelly Puding 1kg" data-price="25000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.48 (2).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.48 (2).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Jelly Puding 1kg</h3>
+<div class="price">Rp 25.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.47.jpeg">
-    <h3>Manco Bulat 1kg</h3>
-    <div class="price">Rp 68.000</div>
-  </div>
+<!-- 11 -->
+<div class="card" data-name="Pillow Coklat 1kg" data-price="36000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.48 (1).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.48 (1).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Pillow Coklat 1kg</h3>
+<div class="price">Rp 36.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.42.jpeg">
-    <h3>Tortila 1kg</h3>
-    <div class="price">Rp 56.000</div>
-  </div>
+<!-- 12 -->
+<div class="card" data-name="Manco Bulat 1kg" data-price="68000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.47.jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.47.jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Manco Bulat 1kg</h3>
+<div class="price">Rp 68.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.43 (1).jpeg">
-    <h3>Naraya Ooat Choco 1kg</h3>
-    <div class="price">Rp 40.000</div>
-  </div>
+<!-- 13 -->
+<div class="card" data-name="Tortila 1kg" data-price="56000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.42.jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.42.jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Tortila 1kg</h3>
+<div class="price">Rp 56.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.43.jpeg">
-    <h3>Jelly Jeruk Mandarin 1kg</h3>
-    <div class="price">Rp 35.000</div>
-  </div>
+<!-- 14 -->
+<div class="card" data-name="Naraya Oat Choco 1kg" data-price="40000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.43 (1).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.43 (1).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Naraya Oat Choco 1kg</h3>
+<div class="price">Rp 40.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.46.jpeg">
-    <h3>Bagelen</h3>
-    <div class="price">Rp 50.000</div>
-  </div>
+<!-- 15 -->
+<div class="card" data-name="Jelly Jeruk Mandarin 1kg" data-price="35000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.43.jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.43.jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Jelly Jeruk Mandarin 1kg</h3>
+<div class="price">Rp 35.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.46 (1).jpeg">
-    <h3>Sus Coklat 1kg</h3>
-    <div class="price">Rp 65.000</div>
-  </div>
+<!-- 16 -->
+<div class="card" data-name="Bagelen" data-price="50000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.46.jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.46.jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Bagelen</h3>
+<div class="price">Rp 50.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.47 (1).jpeg">
-    <h3>Zeko Bunga Kuning 1kg</h3>
-    <div class="price">Rp 40.000</div>
-  </div>
+<!-- 17 -->
+<div class="card" data-name="Sus Coklat 1kg" data-price="65000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.46 (1).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.46 (1).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Sus Coklat 1kg</h3>
+<div class="price">Rp 65.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.46 (2).jpeg">
-    <h3>Cincin Udang 1kg</h3>
-    <div class="price">Rp 37.000</div>
-  </div>
+<!-- 18 -->
+<div class="card" data-name="Zeko Bunga Kuning 1kg" data-price="40000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.47 (1).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.47 (1).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Zeko Bunga Kuning 1kg</h3>
+<div class="price">Rp 40.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.45.jpeg">
-    <h3>Kacang Atom Mamoth 1kg</h3>
-    <div class="price">Rp 50.000</div>
-  </div>
+<!-- 19 -->
+<div class="card" data-name="Cincin Udang 1kg" data-price="37000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.46 (2).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.46 (2).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Cincin Udang 1kg</h3>
+<div class="price">Rp 37.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.45 (2).jpeg">
-    <h3>Basreng Pedas 1kg</h3>
-    <div class="price">Rp 46.000</div>
-  </div>
+<!-- 20 -->
+<div class="card" data-name="Kacang Atom Mamoth 1kg" data-price="50000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.45.jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.45.jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Kacang Atom Mamoth 1kg</h3>
+<div class="price">Rp 50.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.45 (1).jpeg">
-    <h3>Pang-pang Manis 1kg</h3>
-    <div class="price">Rp 34.000</div>
-  </div>
+<!-- 21 -->
+<div class="card" data-name="Basreng Pedas 1kg" data-price="46000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.45 (2).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.45 (2).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Basreng Pedas 1kg</h3>
+<div class="price">Rp 46.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.44.jpeg">
-    <h3>Kacang Bangkok 1kg</h3>
-    <div class="price">Rp 56.000</div>
-  </div>
+<!-- 22 -->
+<div class="card" data-name="Pang-pang Manis 1kg" data-price="34000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.45 (1).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.45 (1).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Pang-pang Manis 1kg</h3>
+<div class="price">Rp 34.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.44 (2).jpeg">
-    <h3>Pang-pang Kerucut 1kg</h3>
-    <div class="price">Rp 40.000</div>
-  </div>
+<!-- 23 -->
+<div class="card" data-name="Kacang Bangkok 1kg" data-price="56000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.44.jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.44.jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Kacang Bangkok 1kg</h3>
+<div class="price">Rp 56.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.44 (1).jpeg">
-    <h3>Roka</h3>
-    <div class="price">Rp 45.000</div>
-  </div>
+<!-- 24 -->
+<div class="card" data-name="Pang-pang Kerucut 1kg" data-price="40000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.44 (2).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.44 (2).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Pang-pang Kerucut 1kg</h3>
+<div class="price">Rp 40.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.40.jpeg">
-    <h3>Kentang Balado 1kg</h3>
-    <div class="price">Rp 46.000</div>
-  </div>
+<!-- 25 -->
+<div class="card" data-name="Roka" data-price="45000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.44 (1).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.44 (1).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Roka</h3>
+<div class="price">Rp 45.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.42 (2).jpeg">
-    <h3>Makaroni Bantat Daun Jeruk 1kg</h3>
-    <div class="price">Rp 31.000</div>
-  </div>
+<!-- 26 -->
+<div class="card" data-name="Kentang Balado 1kg" data-price="46000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.40.jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.40.jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Kentang Balado 1kg</h3>
+<div class="price">Rp 46.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.42 (1).jpeg">
-    <h3>Makaroni Bantat Asin 1kg</h3>
-    <div class="price">Rp 31.000</div>
-  </div>
+<!-- 27 -->
+<div class="card" data-name="Makaroni Bantat Daun Jeruk 1kg" data-price="31000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.42 (2).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.42 (2).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Makaroni Bantat Daun Jeruk 1kg</h3>
+<div class="price">Rp 31.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.41.jpeg">
-    <h3>Semprong Misis 1kg</h3>
-    <div class="price">Rp 45.000</div>
-  </div>
+<!-- 28 -->
+<div class="card" data-name="Makaroni Bantat Asin 1kg" data-price="31000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.42 (1).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.42 (1).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Makaroni Bantat Asin 1kg</h3>
+<div class="price">Rp 31.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.41 (1).jpeg">
-    <h3>Permen Texas 1kg</h3>
-    <div class="price">Rp 45.000</div>
-  </div>
+<!-- 29 -->
+<div class="card" data-name="Semprong Misis 1kg" data-price="45000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.41.jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.41.jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Semprong Misis 1kg</h3>
+<div class="price">Rp 45.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
- <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.39.jpeg">
-    <h3>Astor Coklat 1kg</h3>
-    <div class="price">Rp 42.000</div>
-  </div>
+<!-- 30 -->
+<div class="card" data-name="Permen Texas 1kg" data-price="45000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.41 (1).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.41 (1).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Permen Texas 1kg</h3>
+<div class="price">Rp 45.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
-  <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 09.49.38 (1).jpeg">
-    <h3>Marie Wijen 1kg</h3>
-    <div class="price">Rp 45.000</div>
-  </div>
+<!-- 31 -->
+<div class="card" data-name="Astor Coklat 1kg" data-price="42000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.39.jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.39.jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Astor Coklat 1kg</h3>
+<div class="price">Rp 42.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
-  <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 15.33.40.jpeg">
-    <h3>Telur Ikan Sambal Bangkok 1kg</h3>
-    <div class="price">Rp 48.000</div>
-  </div>
+<!-- 32 -->
+<div class="card" data-name="Marie Wijen 1kg" data-price="45000" data-img="images/WhatsApp Image 2026-02-11 at 09.49.38 (1).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 09.49.38 (1).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Marie Wijen 1kg</h3>
+<div class="price">Rp 45.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
-  <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 15.33.41 (1).jpeg">
-    <h3>Pegagan 1kg</h3>
-    <div class="price">Rp 55.000</div>
-  </div>
+<!-- 33 -->
+<div class="card" data-name="Telur Ikan Sambal Bangkok 1kg" data-price="48000" data-img="images/WhatsApp Image 2026-02-11 at 15.33.40.jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 15.33.40.jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Telur Ikan Sambal Bangkok 1kg</h3>
+<div class="price">Rp 48.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
-  <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 15.33.41 (2).jpeg">
-    <h3>Kuping Gajah Besar 1kg</h3>
-    <div class="price">Rp 33.000</div>
-  </div>
+<!-- 34 -->
+<div class="card" data-name="Pegagan 1kg" data-price="55000" data-img="images/WhatsApp Image 2026-02-11 at 15.33.41 (1).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 15.33.41 (1).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Pegagan 1kg</h3>
+<div class="price">Rp 55.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
-  <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 15.33.41.jpeg">
-    <h3>Kacang Polong Tepung 1kg</h3>
-    <div class="price">Rp 40.000</div>
-  </div>
+<!-- 35 -->
+<div class="card" data-name="Kuping Gajah Besar 1kg" data-price="33000" data-img="images/WhatsApp Image 2026-02-11 at 15.33.41 (2).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 15.33.41 (2).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Kuping Gajah Besar 1kg</h3>
+<div class="price">Rp 33.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
-  <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 15.49.13.jpeg">
-    <h3>Jelly Inaco 1kg</h3>
-    <div class="price">Rp 27.000</div>
-  </div>
+<!-- 36 -->
+<div class="card" data-name="Kacang Polong Tepung 1kg" data-price="40000" data-img="images/WhatsApp Image 2026-02-11 at 15.33.41.jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 15.33.41.jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Kacang Polong Tepung 1kg</h3>
+<div class="price">Rp 40.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
-  <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 15.54.27.jpeg">
-    <h3>Emping Manis 1kg</h3>
-    <div class="price">Rp 60.000</div>
-  </div>
+<!-- 37 -->
+<div class="card" data-name="Jelly Inaco 1kg" data-price="27000" data-img="images/WhatsApp Image 2026-02-11 at 15.49.13.jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 15.49.13.jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Jelly Inaco 1kg</h3>
+<div class="price">Rp 27.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
-   <div class="card fade">
-    <img src="images/WhatsApp Image 2026-02-11 at 15.54.27 (1).jpeg">
-    <h3>Bolu Palma Kering 1kg</h3>
-    <div class="price">Rp 90.000</div>
-  </div>
+<!-- 38 -->
+<div class="card" data-name="Emping Manis 1kg" data-price="60000" data-img="images/WhatsApp Image 2026-02-11 at 15.54.27.jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 15.54.27.jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Emping Manis 1kg</h3>
+<div class="price">Rp 60.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
-
- 
-
+<!-- 39 -->
+<div class="card" data-name="Bolu Palma Kering 1kg" data-price="90000" data-img="images/WhatsApp Image 2026-02-11 at 15.54.27 (1).jpeg">
+<img src="images/WhatsApp Image 2026-02-11 at 15.54.27 (1).jpeg" onclick="openModal(this.closest('.card'))">
+<div class="card-content">
+<h3>Bolu Palma Kering 1kg</h3>
+<div class="price">Rp 90.000</div>
+<div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
+<button class="buy-btn" onclick="addToCart(this)">+ Keranjang</button>
+</div>
+</div>
 
 </section>
 
-<!-- FOOTER -->
+
+
+
+<!-- CART -->
+<div class="cart-panel" id="cartPanel">
+  <h2>Keranjang</h2>
+  <div id="cartItems"></div>
+  <div class="cart-total">
+    Total: Rp <span id="totalPrice">0</span>
+  </div>
+  <button class="checkout-btn" onclick="checkout()">Checkout WhatsApp</button>
+</div>
+
+<!-- FOOTER (TIDAK DIUBAH) -->
 <footer>
   <div class="footer-content">
     <h3>SNACKFH</h3>
@@ -284,16 +495,17 @@
 </footer>
 
 <script src="js/script.js"></script>
+
+<!-- PRODUCT POPUP -->
+<div id="productModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal()">×</span>
+    <img id="modalImg" src="">
+    <h3 id="modalTitle"></h3>
+    <p class="modal-price" id="modalPrice"></p>
+    <button class="buy-btn" onclick="addToCartFromModal()">Tambah ke Keranjang</button>
+  </div>
+</div>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
