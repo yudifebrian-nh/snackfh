@@ -497,11 +497,17 @@
 
 <!-- CART -->
 <div class="cart-panel" id="cartPanel">
-  <h2>Keranjang</h2>
-  <div id="cartItems"></div>
-  <div class="cart-total">
-    Total: Rp <span id="totalPrice">0</span>
+  <div class="cart-header">
+    <h2>Keranjang</h2>
+    <button class="back-btn" onclick="toggleCart()">← Kembali</button>
   </div>
+  
+  <div id="cartItems"></div>
+  
+  <div class="cart-total">
+    <strong>Total:</strong> Rp <span id="totalPrice">0</span>
+  </div>
+  
   <button class="checkout-btn" onclick="checkout()">Checkout WhatsApp</button>
 </div>
 
@@ -529,4 +535,5 @@
 
 </body>
 </html>
+
 
